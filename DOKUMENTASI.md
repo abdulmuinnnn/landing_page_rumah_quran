@@ -260,29 +260,61 @@ const faqs = [
 ---
 
 ### **10. components/Teachers.tsx**
-Grid kartu profil semua guru (11 guru).
+Carousel profil guru dengan infinite loop (11 guru).
 
 **Isi:**
 - Nama ustadz/ustadzah
+- Foto guru (dari Pexels atau URL)
 - Pendidikan (S1, S2, LIPIA, dll)
 - Hafalan (berapa juz)
+- Pencapaian/prestasi
+- Auto-scroll carousel dengan kontrol manual (tombol prev/next)
 - Quote inspiratif di bawah
 
-**Cara Mengubah:**
+**Informasi Foto Guru:**
+- Ukuran foto: **400x300px** (lebar x tinggi)
+- Format: JPG, PNG
+- Sumber: Preferensi dari Pexels (https://pexels.com)
+- Jenis: Portrait/Head shot (minimal dari bahu ke atas)
+- Kualitas: Minimal 72 DPI untuk web
+
+**Cara Mengubah Foto:**
 ```typescript
-// Edit data guru
+// Edit URL foto di data guru
 const teachers = [
   {
     name: "Ust. Nama Lengkap",
+    photo: "https://images.pexels.com/photos/XXXXX/pexels-photo-XXXXX.jpeg?auto=compress&cs=tinysrgb&w=400",
     education: "S1 Universitas",
-    hafalan: "30 Juz"
+    hafalan: "30 Juz",
+    achievement: "Prestasi"
   },
-  // ... edit atau tambah guru baru
 ];
 
-// Ganti quote
-<p>"Quote baru Anda di sini"</p>
+// Format URL dari Pexels: .../pexels-photo-[ID].jpeg?auto=compress&cs=tinysrgb&w=400
+// w=400 artinya lebar 400px (tinggi otomatis maintain ratio)
 ```
+
+**Cara Mengubah Data Guru:**
+```typescript
+// Struktur data guru
+{
+  name: "Ust. Nama Lengkap",           // Nama guru
+  photo: "https://url-foto.jpg",       // URL foto (400x300px)
+  education: "S1/S2/LIPIA/dll",        // Pendidikan
+  hafalan: "30 Juz/15 Juz/dll",        // Jumlah hafalan
+  achievement: "Prestasi atau keahlian" // Pencapaian utama
+}
+
+// Tambah guru baru (copy struktur di atas)
+// Edit atau hapus guru (hapus satu objek dari array)
+```
+
+**Navigasi Carousel:**
+- Auto-scroll ke kanan dengan pausable on hover
+- Tombol navigasi (< >) untuk scroll manual
+- Looping infinit: ketika sampai guru terakhir, kembali ke guru pertama
+- Pause 3 detik setelah klik tombol manual sebelum auto-scroll lagi
 
 ---
 
