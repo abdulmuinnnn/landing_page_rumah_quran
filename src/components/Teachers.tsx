@@ -18,7 +18,7 @@ export default function Teachers() {
       name: "Ust. Abdul Muin",
       photo: "https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=400",
       education: "D2 Tahfidz Ma'had Umar bin Khattab",
-      hafalan: "30 Juz",
+      hafalan: "1000 Juz",
       achievement: "Hafidz 30 Juz Usia 18 Tahun"
     },
     {
@@ -92,7 +92,7 @@ export default function Teachers() {
     const scrollContainer = scrollContainerRef.current;
     if (!scrollContainer) return;
 
-    const scrollSpeed = 0.5;
+    const scrollSpeed = 1.2;
 
     const animate = () => {
       if (!isPausedRef.current && scrollContainer) {
