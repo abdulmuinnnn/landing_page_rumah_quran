@@ -1,8 +1,10 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { GraduationCap, BookOpen, Award, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function Teachers() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<number | null>(null);
+  const isPausedRef = useRef(false);
 
   const teachers = [
     {
@@ -84,20 +86,51 @@ export default function Teachers() {
     }
   ];
 
-  const allTeachers = [...teachers, ...teachers];
+  const allTeachers = [...teachers, ...teachers, ...teachers];
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer) return;
+
+    const scrollSpeed = 0.5;
+
+    const animate = () => {
+      if (!isPausedRef.current && scrollContainer) {
+        scrollContainer.scrollLeft += scrollSpeed;
+
+        const maxScroll = scrollContainer.scrollWidth / 3;
+        if (scrollContainer.scrollLeft >= maxScroll) {
+          scrollContainer.scrollLeft = 0;
+        }
+      }
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, []);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
       const scrollAmount = 400;
-      const newPosition = direction === 'left'
-        ? scrollContainerRef.current.scrollLeft - scrollAmount
-        : scrollContainerRef.current.scrollLeft + scrollAmount;
-
-      scrollContainerRef.current.scrollTo({
-        left: newPosition,
+      scrollContainerRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
         behavior: 'smooth'
       });
     }
+  };
+
+  const handleMouseEnter = () => {
+    isPausedRef.current = true;
+  };
+
+  const handleMouseLeave = () => {
+    isPausedRef.current = false;
   };
 
   return (
@@ -132,7 +165,9 @@ export default function Teachers() {
 
         <div
           ref={scrollContainerRef}
-          className="flex overflow-x-hidden animate-scroll-left hover:[animation-play-state:paused]"
+          className="flex overflow-x-hidden"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           {allTeachers.map((teacher, index) => (
             <div
