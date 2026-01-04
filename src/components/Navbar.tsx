@@ -20,7 +20,7 @@ export default function Navbar() {
           </div>
 
           <a
-            href="https://wa.me/6289808097333"
+            href="https://wa.me/628980897333?text=Assalamu'alaikum,%20mohon%20izin%20info%20pendaftarannya%20ka"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-[#F4A261] text-white px-6 py-2 rounded-full hover:bg-[#e39350] transition-all hover:shadow-lg"

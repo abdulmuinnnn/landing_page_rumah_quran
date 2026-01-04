@@ -96,7 +96,7 @@ export default function Pricing() {
                 </ul>
 
                 <a
-                  href="https://wa.me/6289808097333"
+                  href="https://wa.me/628980897333?text=Assalamu'alaikum,%20mohon%20izin%20info%20pendaftarannya%20ka"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`block w-full text-center py-3 rounded-full font-semibold transition-all ${
