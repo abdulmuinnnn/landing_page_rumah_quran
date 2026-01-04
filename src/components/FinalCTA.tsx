@@ -1,4 +1,4 @@
-import { MessageCircle, QrCode } from 'lucide-react';
+import { MessageCircle} from 'lucide-react';
 
 export default function FinalCTA() {
   return (
@@ -38,12 +38,18 @@ export default function FinalCTA() {
             Scan untuk WhatsApp
           </h3>
           <div className="bg-gray-100 rounded-xl p-6 mb-4">
-            <div className="w-48 h-48 mx-auto bg-white rounded-lg flex items-center justify-center border-2 border-[#008037]">
-              <div className="text-center">
-                <QrCode className="w-32 h-32 text-[#008037] mx-auto mb-2" />
-                <p className="text-xs text-gray-600">QR Code</p>
-              </div>
-            </div>
+            <a
+               href="https://wa.me/628980897333?text=Assalamu'alaikum,%20mohon%20izin%20info%20pendaftarannya%20ka"
+               target="_blank"
+               rel="noopener noreferrer"
+            >
+            <img
+              src="/qr-whatsapp.png"
+              alt="QR WhatsApp Rumah Qur'an Al-Insan"
+              className="w-48 h-48 mx-auto rounded-lg border-2 border-[#008037]"
+            />
+            </a>
+
           </div>
           <p className="text-gray-600 font-semibold" style={{ fontFamily: 'Nunito Sans, sans-serif' }}>
             +62 898-0897-333
