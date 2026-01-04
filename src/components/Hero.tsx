@@ -31,7 +31,7 @@ export default function Hero() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
           <a
-            href="https://wa.me/6289808097333"
+            href="https://wa.me/628980897333?text=Assalamu'alaikum,%20mohon%20izin%20info%20pendaftarannya%20ka"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-[#F4A261] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#e39350] transition-all hover:shadow-2xl hover:scale-105 flex items-center space-x-2"
